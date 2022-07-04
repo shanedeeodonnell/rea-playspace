@@ -8,5 +8,12 @@ export default defineConfig({
   envPrefix: 'REA_PLAYSPACE_',
   server: {
       port: 8080
+  },
+  build: {
+    rollupOptions: {
+      external: [
+        'react'
+      ],
+    }
   }
 })
