@@ -3,6 +3,11 @@
 [![CI](https://github.com/lightningrodlabs/rea-playspace/actions/workflows/test.yml/badge.svg)](https://github.com/lightningrodlabs/rea-playspace/actions/workflows/test.yml)
 [![CI](https://github.com/lightningrodlabs/rea-playspace/actions/workflows/release.yml/badge.svg)](https://github.com/lightningrodlabs/rea-playspace/actions/workflows/release.yml)
 
+-----------------------------------------------
+I have cloned the lightningrodlabs/reaplayspace repo so I can thrash around with github's CI/CD actions without spamming peoples' inboxes.
+-----------------------------------------------
+<br>
+
 The REA Playspace is an electron based environment that lets people play with the concepts behind [Valueflows](https://www.valueflo.ws/).
 
 ![](./docs/assets/demo_flow.png)
