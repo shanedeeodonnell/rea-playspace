@@ -44,5 +44,5 @@
     "test": "cd ui && pnpm test"
   },
   "author": "Shane O'Donnell <shane.odonnell@steeltoad.io>, Jillian Ada Burrows <jill@adaburrows.com>, Connor Turland <connor@sprillow.com>",
-  "license": "CAL-1.0",
+  "license": "CAL-1.0"
 }
