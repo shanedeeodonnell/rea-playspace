@@ -47,7 +47,7 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}      
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}      
       - name: Install workspace dependencies
         run: pnpm run install-deps
       - name: Build happ
