@@ -33,7 +33,7 @@ jobs:
       - name: Check Node version
         run: node -v
       - name: Check pnpm version
-        run: pnpm -b  
+        run: pnpm -v  
       - name: Install hc tool and wasm target
         shell: bash # important because this runs shell scripts
         run: |
