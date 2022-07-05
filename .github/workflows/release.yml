@@ -15,34 +15,21 @@ jobs:
         env:
           # (required)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch source code
         uses: actions/checkout@v2
-      - name: Use Nix
-        uses: cachix/install-nix-action@v16
-        with:
-          nix_path: nixpkgs=channel:nixos-21.11
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 16.15.0
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Configure Nix substituters
-        run: |
-          set -xe
-          mkdir -p ~/.config/nix/
-          cp ./.github/nix.conf ~/.config/nix/
-      - uses: cachix/cachix-action@v10
-        with:
-          name: holochain-ci
-      - name: Prepare Nix environment
-        run: nix-shell --command "echo Completed"
+          node-version: 16.15.0
       - name: Check NPM version
         run: npm -v
       - name: Check Node version
-        run: node -v  
+        run: node -v
+      - name: Install rust deps and hc-cli
+        run: ./scripts/install-hc-tools.sh
       - name: Install workspace dependencies
         run: nix-shell --run "pnpm run install-deps"
       - name: Build happ
