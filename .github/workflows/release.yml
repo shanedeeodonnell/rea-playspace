@@ -24,16 +24,22 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.0
-      - name: Check NPM version
+      - name: Install pnpm  
+        - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 6.22.2
+      - name: Check npm version
         run: npm -v
       - name: Check Node version
         run: node -v
+      - name: Check pnpm version
+        run: pnpm -b  
       - name: Install hc tool and wasm target
         shell: bash # important because this runs shell scripts
         run: |
           npm run hc-install
       - name: Install workspace dependencies
-        run: nix-shell --run "pnpm run install-deps"
+        run: pnpm run install-deps
       - name: Build happ
         run: |
           nix-shell --run "pnpm run happ-pack"
