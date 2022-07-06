@@ -12,6 +12,7 @@ ui/ui.zip
 
 happ/workdir/application.dna
 happ/workdir/application.happ
+workdir/rea-playspace.webhapp
 
 target/
 back/.cargo/
