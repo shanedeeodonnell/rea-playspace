@@ -33,11 +33,7 @@ jobs:
       - name: Check Node version
         run: node -v
       - name: Check pnpm version
-        run: pnpm -v  
-      - name: Install hc tool and wasm target
-        shell: bash # important because this runs shell scripts
-        run: |
-          npm run hc-install
+        run: pnpm -v
       - name: Cache cargo    
         uses: actions/cache@v3
         with:
@@ -47,7 +43,12 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}      
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}  
+      - name: Install hc tool and wasm target
+        shell: bash # important because this runs shell scripts
+        run: |
+          npm run hc-install
+    
       - name: Install workspace dependencies
         run: pnpm run install-deps
       - name: Build happ
